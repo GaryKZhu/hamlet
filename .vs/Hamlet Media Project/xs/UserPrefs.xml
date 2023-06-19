@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{82776875-2617-72E5-61A9-91C614F25CB3}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DrawCards.cs">
+    <Files>
+      <File FileName="Assets/Scripts/DragDrop.cs" Line="22" Column="21" />
+      <File FileName="Assets/DrawCards.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Hamlet Media Project" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True" />
+              <Node name="DrawCards.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7652886b-5ed0-43e7-b8ad-6073d2baef33" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
