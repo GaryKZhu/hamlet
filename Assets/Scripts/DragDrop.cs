@@ -11,7 +11,8 @@ public class DragDrop : MonoBehaviour
     private GameObject startParent;
     private Vector2 startPosition;
     private GameObject dropZone;
-    private bool isOverDropZone; 
+    private bool isOverDropZone;
+    private string collidedwith;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class DragDrop : MonoBehaviour
     {
         Debug.Log("Colliding!");
         isOverDropZone = true;
+        collidedwith = collision.gameObject.name; 
         dropZone = collision.gameObject;
 
     }
@@ -31,6 +33,7 @@ public class DragDrop : MonoBehaviour
     {
         Debug.Log("Uncolliding!");
         isOverDropZone = false;
+        collidedwith = ""; 
         dropZone = null;
 
     }
@@ -49,7 +52,11 @@ public class DragDrop : MonoBehaviour
         {
             transform.SetParent(dropZone.transform, false);
             // calculate card effects here
-
+            GameObject entity = GameObject.Find(collidedwith);
+            entity.GetComponent<Player>().sanity -= gameObject.GetComponent<Card>().damage;
+            entity.GetComponent<Player>().sanity += gameObject.GetComponent<Card>().heal;
+            entity.GetComponent<Player>().sanity = Mathf.Min(entity.GetComponent<Player>().sanity, 20); 
+            entity.GetComponent<Player>().poison += gameObject.GetComponent<Card>().poison; 
             Destroy(gameObject, 5);
         }
         else
