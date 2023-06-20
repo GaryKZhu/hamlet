@@ -13,7 +13,10 @@ GameObject:
   - component: {fileID: 35079333194837249}
   - component: {fileID: 5305740369786885503}
   - component: {fileID: 7365175486534988948}
-  m_Layer: 0
+  - component: {fileID: -444227658067993791}
+  - component: {fileID: -5336743799590146076}
+  - component: {fileID: -4295935826391416410}
+  m_Layer: 6
   m_Name: Cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f9e084ab5025e410baa0f8325193bfbd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -89,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ee87e6f05d94274a1c4293e56690da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 0}
+  DropZone: {fileID: 0}
 --- !u!114 &7365175486534988948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +139,64 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!50 &-444227658067993791
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35079333194837255}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!61 &-5336743799590146076
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35079333194837255}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 120, y: 177}
+  m_EdgeRadius: 0
+--- !u!114 &-4295935826391416410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35079333194837255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10700c3433db942f4a3ac87bfb63e112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardFront: {fileID: 21300000, guid: 53010413eab3448f39ed8a4565e95f1a, type: 3}
+  CardBack: {fileID: 21300000, guid: 8c8e7fb14bf1a45598bf178d3ca16acd, type: 3}

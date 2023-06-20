@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/DragDrop.cs" />
     <Compile Include="Assets/Scripts/DrawCards.cs" />
+    <Compile Include="Assets/Scripts/CardFlipper.cs" />
+    <Compile Include="Assets/Scripts/Card.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

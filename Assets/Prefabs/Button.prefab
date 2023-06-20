@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 3955235093306697326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0064, y: 1.0064, z: 1.0064}
   m_Children:
   - {fileID: 3955235093696368186}
   m_Father: {fileID: 0}
@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3955235093306697331}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7117390180384861581}
+        m_TargetAssemblyTypeName: DrawCards, Assembly-CSharp
+        m_MethodName: onClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7117390180384861581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8cdc4b05451745cf807ffa0fe050456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card1: {fileID: 5712375208626339540, guid: a32a0022ef7b04cf78c7d205871a0aff, type: 3}
-  card2: {fileID: 1751654889551165860, guid: 744587a599ba948d393a06988fb419fe, type: 3}
+  Card1: {fileID: 5712375208626339540, guid: a32a0022ef7b04cf78c7d205871a0aff, type: 3}
+  Card2: {fileID: 1751654889551165860, guid: 744587a599ba948d393a06988fb419fe, type: 3}
+  PlayerArea: {fileID: 7153964077790821390, guid: 9d0ac0c250a6347e2b411794e4220256, type: 3}
 --- !u!1 &3955235093696368187
 GameObject:
   m_ObjectHideFlags: 0
