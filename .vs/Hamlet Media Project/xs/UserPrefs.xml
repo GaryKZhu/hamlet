@@ -1,17 +1,19 @@
-﻿<Properties StartupConfiguration="{82776875-2617-72E5-61A9-91C614F25CB3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CardFlipper.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/DrawCards.cs">
     <Files>
-      <File FileName="Assets/Scripts/DragDrop.cs" Line="4" Column="1" />
-      <File FileName="Assets/DrawCards.cs" Line="11" Column="26" />
-      <File FileName="Assets/Scripts/CardFlipper.cs" Line="10" Column="9" />
+      <File FileName="Assets/Scripts/DragDrop.cs" Line="65" Column="23" />
+      <File FileName="Assets/Scripts/Card.cs" />
+      <File FileName="Assets/Scripts/DrawCards.cs" Line="31" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Hamlet Media Project" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="CardFlipper.cs" selected="True" />
+            <Node name="Assembly-CSharp.Player" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="DrawCards.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>

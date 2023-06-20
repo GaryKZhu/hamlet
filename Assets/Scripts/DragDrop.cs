@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragDrop : MonoBehaviour
 {
     public GameObject Canvas;
-    public GameObject DropZone;
+
 
     private bool isDragging = false;
     private GameObject startParent;
@@ -17,7 +17,6 @@ public class DragDrop : MonoBehaviour
     void Start()
     {
         Canvas = GameObject.Find("Main Canvas");
-        DropZone = GameObject.Find("Drop Zone"); 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,7 +47,10 @@ public class DragDrop : MonoBehaviour
         isDragging = false;
         if(isOverDropZone)
         {
-            transform.SetParent(dropZone.transform, false); 
+            transform.SetParent(dropZone.transform, false);
+            // calculate card effects here
+
+            Destroy(gameObject, 5);
         }
         else
         {
