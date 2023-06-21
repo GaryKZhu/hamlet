@@ -229,7 +229,7 @@ public class BattleSystem : MonoBehaviour
             card.GetComponent<Image>().sprite = c.cardBack;
             enemyHand.Add(c); 
         }
-        state = BattleState.PLAYERTURN;
+        StartCoroutine(PlayerTurn());
     }
 
     IEnumerator PlayerTurn()
@@ -250,15 +250,16 @@ public class BattleSystem : MonoBehaviour
         if(hamlet.sanity <= 0)
         {
             state = BattleState.LOST;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
         }
         else
         {
             //turn playerturn banner on
             yield return new WaitForSeconds(1f);
             GameObject.Find("YourTurn").GetComponent<Image>().enabled = true;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             GameObject.Find("YourTurn").GetComponent<Image>().enabled = false;
+            state = BattleState.PLAYERTURN;
         }
 
     }
@@ -328,10 +329,10 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             //turn playerturn banner on
             GameObject.Find("EnemyTurn").GetComponent<Image>().enabled = true;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             GameObject.Find("EnemyTurn").GetComponent<Image>().enabled = false;
 
 
@@ -424,7 +425,7 @@ public class BattleSystem : MonoBehaviour
          //   Debug.Log(EnemyArea.transform.GetChild(i).GetComponent<Card>().cardName);
             if(EnemyArea.transform.GetChild(i).GetComponent<Card>().cardName == chosen.cardName) {
                 EnemyArea.transform.GetChild(i).GetComponent<Image>().sprite = chosen.cardFront;
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(2f);
             ///    Debug.Log("DESTROYING!"); 
           //      Debug.Log(EnemyArea.transform.childCount);
                 Destroy(EnemyArea.transform.GetChild(i).gameObject);
@@ -450,8 +451,10 @@ public class BattleSystem : MonoBehaviour
         card.transform.SetParent(EnemyArea.transform, false);
         card.GetComponent<Image>().sprite = c.cardBack;
         enemyHand.Add(c);
-     //   Debug.Log(enemyHand.Count);
-        GameObject.Find("BattleSystem").GetComponent<BattleSystem>().state = BattleState.PLAYERTURN;
+        //   Debug.Log(enemyHand.Count);
+        StartCoroutine(PlayerTurn());
+
+        //GameObject.Find("BattleSystem").GetComponent<BattleSystem>().state = BattleState.PLAYERTURN;
         turn++;
     }
 
@@ -468,10 +471,10 @@ public class BattleSystem : MonoBehaviour
     {
         if (state != oldState)
         {
-            if(state == BattleState.PLAYERTURN)
+           /* if(state == BattleState.PLAYERTURN)
             {
                 StartCoroutine(PlayerTurn());
-            }
+            }*/ 
             if (state == BattleState.ENEMYTURN)
             {
                 Card c = hamletDeck[Random.Range(0, hamletDeck.Count)];

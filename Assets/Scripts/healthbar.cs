@@ -17,6 +17,7 @@ public class healthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = entity.GetComponent<Player>().sanity; 
+        slider.value = entity.GetComponent<Player>().sanity;
+
     }
 }

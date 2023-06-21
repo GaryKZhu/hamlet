@@ -41,7 +41,7 @@ public class DragDrop : MonoBehaviour
 
     public void startDrag()
     {
-        if(state == BattleState.PLAYERTURN) {
+        if(state == BattleState.PLAYERTURN && transform.parent.gameObject.name == "Player Area") {
             isDragging = true;
             startParent = transform.parent.gameObject;
             startPosition = transform.position;
@@ -52,7 +52,6 @@ public class DragDrop : MonoBehaviour
     {
         if (state == BattleState.PLAYERTURN)
         {
-            isDragging = false;
             if (isOverDropZone)
             {
                 transform.SetParent(dropZone.transform, false);
@@ -61,11 +60,12 @@ public class DragDrop : MonoBehaviour
                 calculate(entity, gameObject.GetComponent<Card>());
                 
             }
-            else
+            else if(isDragging)
             {
                 transform.position = startPosition;
-                transform.SetParent(startParent.transform, false);
+                transform.SetParent(startParent.transform, false); 
             }
+            isDragging = false;
         }
     }
 
@@ -87,13 +87,12 @@ public class DragDrop : MonoBehaviour
         Player hamlet = GameObject.Find("Hamlet").GetComponent<Player>();
         if (c.spoison > 0)
         {
-
             hamlet.poison++;
         }
         if (c.spoison > 0) hamlet.poisonq.Add(c.spoison + GameObject.Find("BattleSystem").GetComponent<BattleSystem>().turn);
 
         hamlet.sanity -= c.sdamage;
-        if(c.purify)
+        if(c.purify || c.id == 16)
         {
             hamlet.poison = 0;
             hamlet.poisonq.Clear();

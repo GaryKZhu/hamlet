@@ -62,35 +62,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1458}
     - Class: 114
-      Script: {instanceID: 1720}
+      Script: {instanceID: 1590}
     - Class: 114
-      Script: {instanceID: 2252}
+      Script: {instanceID: 1726}
     - Class: 114
-      Script: {instanceID: 2676}
+      Script: {instanceID: 2258}
     - Class: 114
-      Script: {instanceID: 2848}
+      Script: {instanceID: 2682}
     - Class: 114
-      Script: {instanceID: 3084}
+      Script: {instanceID: 2822}
     - Class: 114
-      Script: {instanceID: 3330}
+      Script: {instanceID: 2856}
     - Class: 114
-      Script: {instanceID: 3450}
+      Script: {instanceID: 3092}
     - Class: 114
-      Script: {instanceID: 3866}
+      Script: {instanceID: 3338}
     - Class: 114
-      Script: {instanceID: 4222}
+      Script: {instanceID: 3458}
     - Class: 114
-      Script: {instanceID: 5546}
+      Script: {instanceID: 3874}
     - Class: 114
-      Script: {instanceID: 5610}
+      Script: {instanceID: 4230}
     - Class: 114
-      Script: {instanceID: 5734}
+      Script: {instanceID: 4322}
     - Class: 114
-      Script: {instanceID: 29316}
+      Script: {instanceID: 5556}
     - Class: 114
-      Script: {instanceID: 31148}
+      Script: {instanceID: 5620}
     - Class: 114
-      Script: {instanceID: 46890}
+      Script: {instanceID: 5744}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -128,6 +128,12 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
+      Hash: f298799dfb31d7364bdbd61736155186
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: healthbar
+  - hash:
+      serializedVersion: 2
       Hash: 71b711096c6c32621c1d4c02310898b7
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
@@ -156,6 +162,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: LayoutElement
+  - hash:
+      serializedVersion: 2
+      Hash: 3a0e00fe942082621120621a94d8ce08
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: scriptTexttest
   - hash:
       serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
@@ -234,6 +246,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 46df4a9f50f34b1cef2779f02d34921d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -470,6 +488,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 596ec09a2fdace18c488eaccb623f559
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: handlePoison
+  - hash:
+      serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -642,30 +666,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: 46df4a9f50f34b1cef2779f02d34921d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player
-  - hash:
-      serializedVersion: 2
-      Hash: f298799dfb31d7364bdbd61736155186
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: healthbar
-  - hash:
-      serializedVersion: 2
-      Hash: 3a0e00fe942082621120621a94d8ce08
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: scriptTexttest
-  - hash:
-      serializedVersion: 2
-      Hash: 596ec09a2fdace18c488eaccb623f559
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: handlePoison
   platform: 2
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
