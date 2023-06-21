@@ -1,16 +1,22 @@
 ﻿<Properties StartupConfiguration="{82776875-2617-72E5-61A9-91C614F25CB3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BattleSystem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/handlePoison.cs">
     <Files>
-      <File FileName="Assets/Scripts/Card.cs" Line="19" Column="1" IsPinned="True" />
-      <File FileName="Assets/Scripts/DragDrop.cs" Line="14" Column="25" />
-      <File FileName="Assets/Scripts/Player.cs" Line="14" Column="6" />
-      <File FileName="Assets/Scripts/healthbar.cs" Line="4" Column="22" />
-      <File FileName="Assets/Scripts/BattleSystem.cs" Line="28" Column="40" />
+      <File FileName="Assets/Scripts/Card.cs" Line="11" Column="21" IsPinned="True" />
+      <File FileName="Assets/Scripts/DragDrop.cs" Line="77" Column="55" />
+      <File FileName="Assets/Scripts/BattleSystem.cs" Line="80" Column="10" />
+      <File FileName="Assets/Scripts/Player.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/healthbar.cs" Line="9" Column="30" />
+      <File FileName="Assets/Scripts/handlePoison.cs" Line="9" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Hamlet Media Project" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

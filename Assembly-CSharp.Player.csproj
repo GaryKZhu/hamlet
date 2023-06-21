@@ -60,6 +60,7 @@
     <Compile Include="Assets/Scripts/Player.cs" />
     <Compile Include="Assets/Scripts/healthbar.cs" />
     <Compile Include="Assets/Fonts/Script/scriptTexttest.cs" />
+    <Compile Include="Assets/Scripts/handlePoison.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Fonts/Documentation/JazzCreateAltKeys_BubbleFont.txt" />

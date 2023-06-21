@@ -10,26 +10,180 @@ public class BattleSystem : MonoBehaviour
     public GameObject Cards;
     public GameObject PlayerArea;
     public GameObject EnemyArea;
-    public Sprite Stab;
+    public Sprite Stab1;
+    public Sprite Stab2;
+    public Sprite Stab3;
+    public Sprite Stab4;
+    public Sprite FinalAct;
+    public Sprite HoratiosVigil;
+    public Sprite SpectralBlade;
+    public Sprite SoulboundPact;
+    public Sprite OpheliaLament;
+    public Sprite DaggerofBetrayal;
+    public Sprite GertrudeLove;
+    public Sprite VenomousDagger;
+    public Sprite SerpentsFang;
+
+    public Sprite HamletRapier;
+
     public Sprite Back;
-    public Sprite Heal; 
-    public Sprite Poison;
+    public Sprite Heal1;
+    public Sprite Heal2;
+    public Sprite Heal3;
+    public Sprite Heal4;
+    public Sprite Poison1;
+    public Sprite Poison2;
+
     public BattleState state; 
     public static List<Card> hamletDeck = new List<Card>();
     public static List<Card> enemyDeck = new List<Card>();
-    public static List<Card> enemyHand = new List<Card>(); 
-    public BattleState oldState;
-    private int turn = 0; 
+    public static List<Card> enemyHand = new List<Card>();
+    public BattleState oldState; 
+    public int turn = 0;
+    public int enemystate = 1; 
     Player hamlet;
-    Player enemy; 
+    Player enemy;
+    public GameObject EnemyObject;
+    public Sprite Ghost;
+    public Sprite GhostDead;
+    public Sprite Polonius;
+    public Sprite PoloniusDead;
+    public Sprite Claudius;
+    public Sprite ClaudiusDead;
+    public Sprite GhostTurn;
+    public Sprite PoloniusTurn;
+    public Sprite ClaudiusTurn;
 
     public void onClick()
     {
+        state = BattleState.START; oldState = BattleState.START; 
         gameObject.GetComponent<Image>().enabled = false;
         gameObject.GetComponent<Button>().interactable = false;
         hamlet = GameObject.Find("Hamlet").GetComponent<Player>();
-        enemy = GameObject.Find("Ghost").GetComponent<Player>();
+        enemy = GameObject.Find("Enemy").GetComponent<Player>();
+        if (enemystate == 1)
+        {
+            EnemyObject.GetComponent<Image>().sprite = Ghost;
+            EnemyObject.GetComponent<Player>().sanity = 20;
+            GameObject.Find("EnemyHP").GetComponent<Slider>().maxValue = 20;
+        }
+        else if(enemystate == 2) {
+            EnemyObject.GetComponent<Image>().sprite = Polonius;
+            EnemyObject.GetComponent<Player>().sanity = 30;
+            GameObject.Find("EnemyHP").GetComponent<Slider>().maxValue = 30;
+        }
+        else if(enemystate == 3)
+        {
+            EnemyObject.GetComponent<Image>().sprite = Claudius;
+            EnemyObject.GetComponent<Player>().sanity = 40;
+            GameObject.Find("EnemyHP").GetComponent<Slider>().maxValue = 40;
+        }
 
+        turn = 0; 
+        hamlet.sanity = 20;
+        hamlet.poison = 0;
+        hamlet.poisonq = new List<int>();
+        enemy.poison = 0;
+        enemy.poisonq = new List<int>();
+        enemyDeck = new List<Card>();
+        hamletDeck = new List<Card>();
+        enemyHand = new List<Card>();
+
+        hamletDeck.Add(new Card(1, "Sword Strike", "dmg", 1, 0, 0, 0, 0, false, Stab1, Back));
+        hamletDeck.Add(new Card(2, "Reckless Charge", "dmg", 2, 0, 0, 1, 0, false, Stab2, Back));
+        hamletDeck.Add(new Card(3, "Momento Mori", "dmg", 5, 0, 0, 0, 0, false, Stab3, Back));
+        hamletDeck.Add(new Card(4, "Skull Crusher", "dmg", 2, 0, 0, 0, 0, false, Stab4, Back));
+        hamletDeck.Add(new Card(5, "Final Act", "unique", 4, 0, 0, 0, 1, false, FinalAct, Back));
+        hamletDeck.Add(new Card(8, "HamletRapier", "unique", 3, 0, 0, 0, 0, false, HamletRapier, Back));
+        hamletDeck.Add(new Card(10, "HoratiosVigil", "unique", 4, 0, 0, 0, 0, false, HoratiosVigil, Back));
+
+        hamletDeck.Add(new Card(12, "Remedy of Serenity", "heal", 0, 1, 0, 0, 0, false, Heal1, Back));
+        hamletDeck.Add(new Card(13, "Respite of the Woods", "heal", 0, 2, 0, 0, 0, false, Heal2, Back));
+        hamletDeck.Add(new Card(15, "Solace of Soliloquy", "heal", 0, 3, 0, 0, 0, false, Heal3, Back));
+        hamletDeck.Add(new Card(16, "Restorative Elixir", "heal", 0, 2, 0, 0, 0, true, Heal4, Back));
+
+        hamletDeck.Add(new Card(19, "Envenomed Blade", "poison", 1, 0, 2, 0, 0, false, Poison1, Back));
+        hamletDeck.Add(new Card(20, "Plague of Madness", "poison", 0, 0, 4, 0, 2, false, Poison2, Back)); 
+
+
+
+        Debug.Log(enemystate);
+        if (enemystate == 1)
+        {
+            enemyDeck.Add(new Card(1, "Sword Strike", "dmg", 1, 0, 0, 0, 0, false, Stab1, Back));
+            enemyDeck.Add(new Card(2, "Reckless Charge", "dmg", 2, 0, 0, 1, 0, false, Stab2, Back));
+            enemyDeck.Add(new Card(3, "Momento Mori", "dmg", 5, 0, 0, 0, 0, false, Stab3, Back));
+            enemyDeck.Add(new Card(4, "Skull Crusher", "dmg", 2, 0, 0, 0, 0, false, Stab4, Back));
+            enemyDeck.Add(new Card(12, "Remedy of Serenity", "heal", 0, 1, 0, 0, 0, false, Heal1, Back));
+            enemyDeck.Add(new Card(13, "Respite of the Woods", "heal", 0, 2, 0, 0, 0, false, Heal2, Back));
+            enemyDeck.Add(new Card(15, "Solace of Soliloquy", "heal", 0, 3, 0, 0, 0, false, Heal3, Back));
+            enemyDeck.Add(new Card(16, "Restorative Elixir", "heal", 0, 2, 0, 0, 0, true, Heal4, Back));
+
+            enemyDeck.Add(new Card(19, "Envenomed Blade", "poison", 1, 0, 2, 0, 0, false, Poison1, Back));
+            enemyDeck.Add(new Card(20, "Plague of Madness", "poison", 0, 0, 4, 0, 2, false, Poison2, Back));
+
+            enemyDeck.Add(new Card(6, "Spectral Blade", "unique", 2, 0, 0, 0, 0, false, SpectralBlade, Back));
+            enemyDeck.Add(new Card(7, "Soulbound Pact", "unique", 4, 0, 0, 2, 0, false, SoulboundPact, Back));
+            GameObject.Find("EnemyTurn").GetComponent<Image>().sprite = GhostTurn;
+
+
+        }
+
+        if (enemystate == 2)
+        {
+            enemyDeck.Add(new Card(1, "Sword Strike", "dmg", 1, 0, 0, 0, 0, false, Stab1, Back));
+            enemyDeck.Add(new Card(2, "Reckless Charge", "dmg", 2, 0, 0, 1, 0, false, Stab2, Back));
+            enemyDeck.Add(new Card(3, "Momento Mori", "dmg", 5, 0, 0, 0, 0, false, Stab3, Back));
+            enemyDeck.Add(new Card(4, "Skull Crusher", "dmg", 2, 0, 0, 0, 0, false, Stab4, Back));
+            enemyDeck.Add(new Card(12, "Remedy of Serenity", "heal", 0, 1, 0, 0, 0, false, Heal1, Back));
+            enemyDeck.Add(new Card(13, "Respite of the Woods", "heal", 0, 2, 0, 0, 0, false, Heal2, Back));
+            enemyDeck.Add(new Card(15, "Solace of Soliloquy", "heal", 0, 3, 0, 0, 0, false, Heal3, Back));
+            enemyDeck.Add(new Card(16, "Restorative Elixir", "heal", 0, 2, 0, 0, 0, true, Heal4, Back));
+            enemyDeck.Add(new Card(19, "Envenomed Blade", "poison", 1, 0, 2, 0, 0, false, Poison1, Back));
+            enemyDeck.Add(new Card(20, "Plague of Madness", "poison", 0, 0, 4, 0, 2, false, Poison2, Back));
+
+            enemyDeck.Add(new Card(9, "Ophelia's Lament", "unique", 3, 1, 0, 0, 0, false, OpheliaLament, Back));
+            GameObject.Find("EnemyTurn").GetComponent<Image>().sprite = PoloniusTurn;
+
+
+        }
+        if (enemystate == 3)
+        {
+            enemyDeck.Add(new Card(1, "Sword Strike", "dmg", 1, 0, 0, 0, 0, false, Stab1, Back));
+            enemyDeck.Add(new Card(2, "Reckless Charge", "dmg", 2, 0, 0, 1, 0, false, Stab2, Back));
+            enemyDeck.Add(new Card(3, "Momento Mori", "dmg", 5, 0, 0, 0, 0, false, Stab3, Back));
+            enemyDeck.Add(new Card(4, "Skull Crusher", "dmg", 2, 0, 0, 0, 0, false, Stab4, Back));
+            enemyDeck.Add(new Card(12, "Remedy of Serenity", "heal", 0, 1, 0, 0, 0, false, Heal1, Back));
+            enemyDeck.Add(new Card(13, "Respite of the Woods", "heal", 0, 2, 0, 0, 0, false, Heal2, Back));
+            enemyDeck.Add(new Card(15, "Solace of Soliloquy", "heal", 0, 3, 0, 0, 0, false, Heal3, Back));
+            enemyDeck.Add(new Card(16, "Restorative Elixir", "heal", 0, 2, 0, 0, 0, true, Heal4, Back));
+            enemyDeck.Add(new Card(19, "Envenomed Blade", "poison", 1, 0, 2, 0, 0, false, Poison1, Back));
+            enemyDeck.Add(new Card(20, "Plague of Madness", "poison", 0, 0, 4, 0, 2, false, Poison2, Back));
+
+            enemyDeck.Add(new Card(11, "Dagger of Betrayal", "unique", 4, 0, 0, 0, 0, false, DaggerofBetrayal, Back));
+            enemyDeck.Add(new Card(13, "Gertrude's Love", "heal", 0, 4, 0, 0, 0, false, GertrudeLove, Back));
+            enemyDeck.Add(new Card(17, "Venomous Dagger", "unique", 2, 0, 2, 0, 0, false, VenomousDagger, Back));
+            enemyDeck.Add(new Card(18, "Serpent's Fang", "unique", 1, 0, 1, 0, 0, false, SerpentsFang, Back));
+            GameObject.Find("EnemyTurn").GetComponent<Image>().sprite = ClaudiusTurn;
+        }
+
+        if (EnemyArea.transform.childCount > 0) {
+            for (int i = EnemyArea.transform.childCount-1; i >= 0; i--)
+            {
+                Destroy(EnemyArea.transform.GetChild(i).gameObject);
+            };
+        }
+        if (PlayerArea.transform.childCount > 0)
+        {
+            for (int i = PlayerArea.transform.childCount-1; i >= 0; i--)
+            {
+                Destroy(PlayerArea.transform.GetChild(i).gameObject);
+            };
+        }
+
+
+        Debug.Log(enemyDeck.Count);
+        Debug.Log(hamletDeck.Count); 
         StartBattle(); 
     }
 
@@ -46,6 +200,9 @@ public class BattleSystem : MonoBehaviour
             card.GetComponent<Card>().heal = c.heal;
             card.GetComponent<Card>().type = c.type;
             card.GetComponent<Card>().poison = c.poison;
+            card.GetComponent<Card>().spoison = c.spoison;
+            card.GetComponent<Card>().sdamage = c.sdamage;
+            card.GetComponent<Card>().purify = c.purify;
             card.GetComponent<Card>().cardFront = c.cardFront;
             card.GetComponent<Card>().cardBack = c.cardBack;
             card.transform.SetParent(PlayerArea.transform, false);
@@ -54,6 +211,7 @@ public class BattleSystem : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
+
             Card c = enemyDeck[Random.Range(0, enemyDeck.Count)];
             GameObject card = Instantiate(Cards, new Vector2(0, 0), Quaternion.identity);
             card.GetComponent<Card>().damage = c.damage;
@@ -62,6 +220,9 @@ public class BattleSystem : MonoBehaviour
             card.GetComponent<Card>().heal = c.heal;
             card.GetComponent<Card>().poison = c.poison;
             card.GetComponent<Card>().type = c.type;
+            card.GetComponent<Card>().spoison = c.spoison;
+            card.GetComponent<Card>().sdamage = c.sdamage;
+            card.GetComponent<Card>().purify = c.purify;
             card.GetComponent<Card>().cardFront = c.cardFront;
             card.GetComponent<Card>().cardBack = c.cardBack;
             card.transform.SetParent(EnemyArea.transform, false);
@@ -74,18 +235,29 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerTurn()
     {
         //calculate poison
-
+        hamlet.poisonq.Sort();
+        if (hamlet.poisonq.Count > 0 && hamlet.poisonq[0] <= turn)
+        {
+            Debug.Log("Current Damage:"); Debug.Log(hamlet.poison); Debug.Log(hamlet.poisonq[0]);
+            hamlet.poison--;
+            hamlet.poisonq.RemoveAt(0);
+        }
+        hamlet.sanity -= hamlet.poison;
+        Debug.Log("Poison Count: Hamlet");
+        Debug.Log(hamlet.poisonq.Count);
+        if (hamlet.poisonq.Count > 0) Debug.Log(hamlet.poisonq[0]);
+        Debug.Log("Current Turn:"); Debug.Log(turn);
         if(hamlet.sanity <= 0)
         {
             state = BattleState.LOST;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
         else
         {
             //turn playerturn banner on
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             GameObject.Find("YourTurn").GetComponent<Image>().enabled = true;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             GameObject.Find("YourTurn").GetComponent<Image>().enabled = false;
         }
 
@@ -93,30 +265,73 @@ public class BattleSystem : MonoBehaviour
     IEnumerator WinBattle()
     {
         //turn playerturn banner on
+        if(enemystate == 1)
+        {
+            EnemyObject.GetComponent<Image>().sprite = GhostDead;
+        }
+        if (enemystate == 2)
+        {
+            EnemyObject.GetComponent<Image>().sprite = PoloniusDead;
+        }
+        if (enemystate == 3)
+        {
+            EnemyObject.GetComponent<Image>().sprite = ClaudiusDead;
+        }
 
-        yield return new WaitForSeconds(2f);
+
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("Win").GetComponent<Image>().enabled = true;
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("Win").GetComponent<Image>().enabled = false;
+        enemystate++;
+        enemystate = Mathf.Min(3, enemystate);
+        gameObject.GetComponent<Image>().enabled = true;
+        gameObject.GetComponent<Button>().interactable = true;
     }
+
     IEnumerator LostBattle()
     {
-        //turn playerturn banner on
+        //turn lose banner on
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("Lose").GetComponent<Image>().enabled = true;
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("Lose").GetComponent<Image>().enabled = false;
+        enemystate = 1;
+        gameObject.GetComponent<Image>().enabled = true;
+        gameObject.GetComponent<Button>().interactable = true;
     }
 
     IEnumerator EnemyTurn()
     {
+        if (enemy.poisonq.Count > 0 && enemy.poisonq[0] <= turn)
+        {
+            enemy.poison--;
+            enemy.poisonq.RemoveAt(0);
+        }
+        enemy.sanity -= enemy.poison;
+        enemy.poisonq.Sort();
+        Debug.Log(enemy.poisonq.Count);
+        if (enemy.poisonq.Count > 0) Debug.Log(enemy.poisonq[0]);
+        Debug.Log("Current Turn:"); Debug.Log(turn);
+        if (enemy.poisonq.Count > 0 && enemy.poisonq[0] == turn)
+        {
+            Debug.Log("Current Damage:"); Debug.Log(enemy.poison); Debug.Log(enemy.poisonq[0]);
+            enemy.poison--;
+            enemy.poisonq.RemoveAt(0);
+        }
         //calculate poison
-        if(enemy.sanity <= 0)
+        if (enemy.sanity <= 0)
         {
             state = BattleState.WON; 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
         else
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             //turn playerturn banner on
             GameObject.Find("EnemyTurn").GetComponent<Image>().enabled = true;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             GameObject.Find("EnemyTurn").GetComponent<Image>().enabled = false;
 
 
@@ -132,7 +347,7 @@ public class BattleSystem : MonoBehaviour
             {
                 if (enemyHand[i].type == "unique")
                 {
-                    Debug.Log("Special!");
+                   // Debug.Log("Special!");
                     StartCoroutine(calculate(enemyHand[i], i));
                     special = true;
                     break; 
@@ -148,7 +363,7 @@ public class BattleSystem : MonoBehaviour
                 {
                     for (int i = 0; i < cards; ++i)
                     {
-                        Debug.Log("Healing!");
+                      //  Debug.Log("Healing!");
                         if (enemyHand[i].type == "heal")
                         {
                             StartCoroutine(calculate(enemyHand[i], i));
@@ -158,7 +373,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 else if(enemy.sanity >= 18 && (hasDmg || hasPoison))
                 {
-                    Debug.Log("Attacking!"); 
+                 //   Debug.Log("Attacking!"); 
                     for (int i = 0; i < cards; ++i)
                     {
                         if (enemyHand[i].type == "dmg" || enemyHand[i].type == "poison")
@@ -170,7 +385,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Random!");
+                 //   Debug.Log("Random!");
                     int rand = Random.Range(0, cards); 
                     StartCoroutine(calculate(enemyHand[rand], rand)); 
                 }
@@ -186,20 +401,34 @@ public class BattleSystem : MonoBehaviour
         Debug.Log(chosen.poison);
         hamlet.sanity -= chosen.damage;
         enemy.sanity += chosen.heal;
-        hamlet.poison += chosen.poison;
+
+        if (chosen.purify || chosen.id == 16)
+        {
+            enemy.poison = 0;
+            enemy.poisonq.Clear();
+        }
+
+        if (chosen.poison > 0) hamlet.poison++;
+        if(chosen.poison > 0) hamlet.poisonq.Add(chosen.poison + turn);
+
+        if (chosen.spoison > 0) enemy.poison++;
+        if (chosen.spoison > 0) enemy.poisonq.Add(chosen.spoison + GameObject.Find("BattleSystem").GetComponent<BattleSystem>().turn);
+        enemy.sanity -= chosen.sdamage;
+
+
         enemyHand.RemoveAt(id);
 
-        Debug.Log(chosen.cardName); 
+   //     Debug.Log(chosen.cardName); 
         for(int i = 0; i<EnemyArea.transform.childCount; i++)
         {
-            Debug.Log(EnemyArea.transform.GetChild(i).GetComponent<Card>().cardName);
+         //   Debug.Log(EnemyArea.transform.GetChild(i).GetComponent<Card>().cardName);
             if(EnemyArea.transform.GetChild(i).GetComponent<Card>().cardName == chosen.cardName) {
                 EnemyArea.transform.GetChild(i).GetComponent<Image>().sprite = chosen.cardFront;
-                yield return new WaitForSeconds(2f);
-                Debug.Log("DESTROYING!"); 
-                Debug.Log(EnemyArea.transform.childCount);
+                yield return new WaitForSeconds(1f);
+            ///    Debug.Log("DESTROYING!"); 
+          //      Debug.Log(EnemyArea.transform.childCount);
                 Destroy(EnemyArea.transform.GetChild(i).gameObject);
-                Debug.Log(EnemyArea.transform.childCount);
+           //     Debug.Log(EnemyArea.transform.childCount);
                 break; 
             }
         };
@@ -213,36 +442,26 @@ public class BattleSystem : MonoBehaviour
         card.GetComponent<Card>().heal = c.heal;
         card.GetComponent<Card>().poison = c.poison;
         card.GetComponent<Card>().type = c.type;
+        card.GetComponent<Card>().spoison = c.spoison;
+        card.GetComponent<Card>().sdamage = c.sdamage;
+        card.GetComponent<Card>().purify = c.purify;
         card.GetComponent<Card>().cardFront = c.cardFront;
         card.GetComponent<Card>().cardBack = c.cardBack;
         card.transform.SetParent(EnemyArea.transform, false);
         card.GetComponent<Image>().sprite = c.cardBack;
         enemyHand.Add(c);
-        Debug.Log(enemyHand.Count);
+     //   Debug.Log(enemyHand.Count);
         GameObject.Find("BattleSystem").GetComponent<BattleSystem>().state = BattleState.PLAYERTURN;
+        turn++;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        state = BattleState.START;
-        hamletDeck.Add(new Card(0, "Stab", "dmg", 3, 0, 0, Stab, Back));
-        hamletDeck.Add(new Card(1, "Heal", "heal", 0, 2, 0, Heal, Back));
-        hamletDeck.Add(new Card(2, "Poison", "poison", 1, 0, 2, Poison, Back));
-
-        Debug.Log(GameObject.Find("Ghost"));
-        if (GameObject.Find("Ghost") != null)
-        {
-            enemyDeck.Add(new Card(0, "Stab", "dmg", 3, 0, 0, Stab, Back));
-            enemyDeck.Add(new Card(1, "Heal", "heal", 0, 2, 0, Heal, Back));
-            enemyDeck.Add(new Card(2, "Poison", "poison", 1, 0, 2, Poison, Back));
-        }
 
     }
 
 
-    void WON() { }
-    void LOST() { }
 
     // Update is called once per frame
     void Update()
@@ -265,17 +484,20 @@ public class BattleSystem : MonoBehaviour
                 card.GetComponent<Card>().cardFront = c.cardFront;
                 card.GetComponent<Card>().cardBack = c.cardBack;
                 card.GetComponent<Card>().type = c.type;
+                card.GetComponent<Card>().spoison = c.spoison;
+                card.GetComponent<Card>().sdamage = c.sdamage;
+                card.GetComponent<Card>().purify = c.purify;
                 card.transform.SetParent(PlayerArea.transform, false);
                 card.GetComponent<Image>().sprite = c.cardFront;
                 StartCoroutine(EnemyTurn());
             }
             if (state == BattleState.WON)
             {
-                //StartCoroutine(WON());
+                StartCoroutine(WinBattle());
             }
             if (state == BattleState.LOST)
             {
-             //   StartCoroutine(LOST());
+                StartCoroutine(LostBattle());
             }
         }
         oldState = state;

@@ -71,9 +71,34 @@ public class DragDrop : MonoBehaviour
 
     void calculate(GameObject entity, Card c) 
     {
+        Debug.Log("Doing:");
+        Debug.Log(c.damage);
+        Debug.Log(c.heal);
+        Debug.Log(c.poison);
         entity.GetComponent<Player>().sanity -= c.damage;
         entity.GetComponent<Player>().sanity += c.heal;
-        entity.GetComponent<Player>().poison += c.poison;
+        if(c.poison > 0) entity.GetComponent<Player>().poison++;
+        if(c.poison > 0) entity.GetComponent<Player>().poisonq.Add(c.poison + GameObject.Find("BattleSystem").GetComponent<BattleSystem>().turn);
+
+        
+        Debug.Log("Self Poison:");
+        Debug.Log(c.spoison);
+        Debug.Log(c.cardName); 
+        Player hamlet = GameObject.Find("Hamlet").GetComponent<Player>();
+        if (c.spoison > 0)
+        {
+
+            hamlet.poison++;
+        }
+        if (c.spoison > 0) hamlet.poisonq.Add(c.spoison + GameObject.Find("BattleSystem").GetComponent<BattleSystem>().turn);
+
+        hamlet.sanity -= c.sdamage;
+        if(c.purify)
+        {
+            hamlet.poison = 0;
+            hamlet.poisonq.Clear();
+        }
+
         Destroy(gameObject, 2);
         GameObject.Find("BattleSystem").GetComponent<BattleSystem>().state = BattleState.ENEMYTURN;                
     }
