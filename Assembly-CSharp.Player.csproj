@@ -53,12 +53,18 @@
     <UnityVersion>2020.3.24f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets/Scripts/DrawCards.cs" />
+    <Compile Include="Assets/Scripts/BattleSystem.cs" />
     <Compile Include="Assets/Scripts/Card.cs" />
     <Compile Include="Assets/Scripts/DragDrop.cs" />
     <Compile Include="Assets/Scripts/CardFlipper.cs" />
     <Compile Include="Assets/Scripts/Player.cs" />
     <Compile Include="Assets/Scripts/healthbar.cs" />
+    <Compile Include="Assets/Fonts/Script/scriptTexttest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets/Fonts/Documentation/JazzCreateAltKeys_BubbleFont.txt" />
+    <None Include="Assets/Pixel Font - Tripfive/_README.txt" />
+    <None Include="Assets/Fonts/Documentation/JazzCreateBubble_VersionHistory_1.1.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

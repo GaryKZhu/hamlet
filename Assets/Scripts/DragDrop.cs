@@ -13,6 +13,7 @@ public class DragDrop : MonoBehaviour
     private GameObject dropZone;
     private bool isOverDropZone;
     private string collidedwith;
+    private BattleState state;  
 
     // Start is called before the first frame update
     void Start()
@@ -40,30 +41,41 @@ public class DragDrop : MonoBehaviour
 
     public void startDrag()
     {
-        isDragging = true;
-        startParent = transform.parent.gameObject;
-        startPosition = transform.position;
+        if(state == BattleState.PLAYERTURN) {
+            isDragging = true;
+            startParent = transform.parent.gameObject;
+            startPosition = transform.position;
+        }
     }
 
     public void EndDrag()
     {
-        isDragging = false;
-        if(isOverDropZone)
+        if (state == BattleState.PLAYERTURN)
         {
-            transform.SetParent(dropZone.transform, false);
-            // calculate card effects here
-            GameObject entity = GameObject.Find(collidedwith);
-            entity.GetComponent<Player>().sanity -= gameObject.GetComponent<Card>().damage;
-            entity.GetComponent<Player>().sanity += gameObject.GetComponent<Card>().heal;
-            entity.GetComponent<Player>().sanity = Mathf.Min(entity.GetComponent<Player>().sanity, 20); 
-            entity.GetComponent<Player>().poison += gameObject.GetComponent<Card>().poison; 
-            Destroy(gameObject, 5);
+            isDragging = false;
+            if (isOverDropZone)
+            {
+                transform.SetParent(dropZone.transform, false);
+                // calculate card effects here
+                GameObject entity = GameObject.Find(collidedwith);
+                calculate(entity, gameObject.GetComponent<Card>());
+                
+            }
+            else
+            {
+                transform.position = startPosition;
+                transform.SetParent(startParent.transform, false);
+            }
         }
-        else
-        {
-            transform.position = startPosition;
-            transform.SetParent(startParent.transform, false); 
-        }
+    }
+
+    void calculate(GameObject entity, Card c) 
+    {
+        entity.GetComponent<Player>().sanity -= c.damage;
+        entity.GetComponent<Player>().sanity += c.heal;
+        entity.GetComponent<Player>().poison += c.poison;
+        Destroy(gameObject, 2);
+        GameObject.Find("BattleSystem").GetComponent<BattleSystem>().state = BattleState.ENEMYTURN;                
     }
 
     // Update is called once per frame
@@ -74,5 +86,6 @@ public class DragDrop : MonoBehaviour
             transform.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             transform.SetParent(Canvas.transform, true);
         }
+        state = GameObject.Find("BattleSystem").GetComponent<BattleSystem>().state;
     }
 }

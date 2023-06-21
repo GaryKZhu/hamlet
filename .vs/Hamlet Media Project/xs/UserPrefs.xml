@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{82776875-2617-72E5-61A9-91C614F25CB3}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/healthbar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BattleSystem.cs">
     <Files>
-      <File FileName="Assets/Scripts/DragDrop.cs" Line="48" Column="26" />
-      <File FileName="Assets/Scripts/Card.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DrawCards.cs" Line="62" Column="13" />
-      <File FileName="Assets/Scripts/Player.cs" Line="8" Column="28" />
-      <File FileName="Assets/Scripts/healthbar.cs" Line="16" Column="9" />
+      <File FileName="Assets/Scripts/Card.cs" Line="19" Column="1" IsPinned="True" />
+      <File FileName="Assets/Scripts/DragDrop.cs" Line="14" Column="25" />
+      <File FileName="Assets/Scripts/Player.cs" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/healthbar.cs" Line="4" Column="22" />
+      <File FileName="Assets/Scripts/BattleSystem.cs" Line="28" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
